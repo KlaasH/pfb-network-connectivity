@@ -40,7 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party
+    'localflavor',
     'rest_framework',
+    'storages',
+
+    # Application
+    'pfb_analysis',
 ]
 
 MIDDLEWARE = [
@@ -164,3 +169,14 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
+
+
+# Django Storages
+# https://github.com/jschneier/django-storages
+# TODO: Setup configuration via docker env once AWS account exists
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_STORAGE_BUCKET_NAME = ''
+AWS_AUTO_CREATE_BUCKET = True
